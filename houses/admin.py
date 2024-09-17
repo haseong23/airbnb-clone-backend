@@ -24,3 +24,5 @@ class HouseAdmin(admin.ModelAdmin):
         "address__startswith",
         "name",
     )
+
+    # Django doc을 읽어봐라!
