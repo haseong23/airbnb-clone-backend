@@ -9,6 +9,7 @@ class House(models.Model):
     """
     # 속성
     name = models.CharField(max_length=140)
-    price = models.PositiveBigIntegerField()
+    price_per_nigth = models.PositiveBigIntegerField()
     discription = models.TextField()
     address = models.CharField(max_length=1500)
+    pets_allowed = models.BooleanField(default=False)
