@@ -21,9 +21,9 @@ class HouseAdmin(admin.ModelAdmin):
     )
 
     # 검색
-    search_fields = (
-        "address__startswith",
-        "name",
-    )
+    # search_fields = (
+    #     "address__startswith",
+    #     "name",
+    # )
 
     # Django doc을 읽어봐라!
