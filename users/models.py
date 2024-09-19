@@ -3,4 +3,10 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class User(AbstractUser):
-    pass
+    # Overwrite
+    first_name = models.CharField(max_length=150, editable=False)
+    last_name = models.CharField(max_length=150, editable=False)
+    
+    # custom
+    name = models.CharField(max_length=150)
+    is_host = models.BooleanField()
