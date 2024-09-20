@@ -15,6 +15,7 @@ class House(models.Model):
     discription = models.TextField()
     address = models.CharField(max_length=1500)
     pets_allowed = models.BooleanField(default=False)
+    owner = models.ForeignKey("users.User", on_delete=models.CASCADE)
 
     def __str__(self):
         # Object명이 아닌 House의 이름을 표시하기 위함임.
