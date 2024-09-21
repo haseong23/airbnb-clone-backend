@@ -1,8 +1,9 @@
 from django.db import models
+from common.models import CommonModel
 
 
 # Create your models here.
-class Room(models.Model):
+class Room(CommonModel):
     """Room Model Definition"""
 
     class RoomKindChoices(models.TextChoices):
@@ -10,7 +11,7 @@ class Room(models.Model):
         PRIVATE_ROOM = "private_room", "Private room"
         SHARED_ROOM = "shared_room", "Shared room"
 
-    country = models.CharField(max_length=50, defautl="한국")
+    country = models.CharField(max_length=50, default="한국")
     city = models.CharField(max_length=80, default="서울")
     price = models.PositiveIntegerField()
     rooms = models.PositiveIntegerField()
@@ -22,10 +23,16 @@ class Room(models.Model):
         max_length=20,
         choices=RoomKindChoices.choices,
     )
-    owner = models.ForeignKey("Users.user", on_delete=models.CASCADE)
+    owner = models.ForeignKey(
+        "users.User",
+        on_delete=models.CASCADE,
+    )
+    amenties = models.ManyToManyField(
+        "rooms.Amenity",
+    )
 
 
-class Amenity(models.Model):
+class Amenity(CommonModel):
     """Amenity Defition"""
 
     name = models.CharField(max_length=150)
