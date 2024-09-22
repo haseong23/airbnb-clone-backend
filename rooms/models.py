@@ -16,8 +16,14 @@ class Room(CommonModel):
         max_length=200,
         default="",
     )
-    country = models.CharField(max_length=50, default="한국")
-    city = models.CharField(max_length=80, default="서울")
+    country = models.CharField(
+        max_length=50,
+        default="한국",
+    )
+    city = models.CharField(
+        max_length=80,
+        default="서울",
+    )
     price = models.PositiveIntegerField()
     rooms = models.PositiveIntegerField()
     toilets = models.PositiveIntegerField()
